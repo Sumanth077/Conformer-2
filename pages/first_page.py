@@ -34,7 +34,7 @@ def transcribe(audio):
 
 
 with st.form("my_form"):
-    audio = st.text_area("Enter text:", "Enter the Audio URL that you want to transcribe?")
+    audio = st.text_area("Enter Audio File that you want to transcribe & summarize:", "https://example.org/audio.mp3")
     submitted = st.form_submit_button("Submit")
     if not api_key:
         st.info("Please add your AssemblyAI API key to continue.")
