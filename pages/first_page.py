@@ -16,7 +16,7 @@ stub = create_stub(auth)
 userDataObject = auth.get_user_app_id_proto()
 lister = ClarifaiResourceLister(stub, auth.user_id, auth.app_id, page_size=16)
 
-st.title("🎙️ Audio Transcription using the latest Conformer-2 Model from Assemblyai")
+st.title("🎙️ Audio Transcription using the Conformer-2 Model from Assemblyai")
 
 st.sidebar.markdown("Made with UI Modules, a streamlit integration from [Clarifai](https://clarifai.com/) that helps you create and deploy beautiful AI web apps.")
 st.sidebar.image("https://clarifai.com/favicon.svg", width=100)
@@ -29,8 +29,8 @@ with st.sidebar:
 
 def transcribe(audio):
     transcriber = aai.Transcriber()
-    transcript = transcriber.transcribe("https://example.org/audio.mp3", config=aai.TranscriptionConfig(summarization=True))
-    st.info(transcript)
+    transcript = transcriber.transcribe(audio, config=aai.TranscriptionConfig(summarization=True))
+    st.info(transcript.text)
 
 
 with st.form("my_form"):
